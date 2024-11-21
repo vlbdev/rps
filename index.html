@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <script src="rps-ui.js"></script>
+    <script src="rps-ui.js" defer></script>
     <style>
       h1,
       h2,
@@ -64,16 +64,18 @@
         background-color: white;
         position: relative;
       }
-      .message::after {
-        content: "x";
+      .closeMessage {
         position: absolute;
-        top: 0;
-        right: -25px;
+        top: -23px;
+        right: -45px;
         background-color: white;
-        width: 20px;
-        height: 20px;
+        width: 40px;
+        height: 40px;
         border-radius: 50%;
         text-align: center;
+        font-size: 30px;
+        line-height: 40px;
+        cursor: pointer;
       }
     </style>
   </head>
@@ -124,7 +126,10 @@
     </div>
 
     <div class="overlay">
-      <div class="message">Game over</div>
+      <div class="message">
+        <h2>Game over</h2>
+        <span class="closeMessage">✕</span>
+      </div>
     </div>
   </body>
 </html>
