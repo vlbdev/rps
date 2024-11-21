@@ -48,6 +48,21 @@
         border-radius: 50%;
         margin-bottom: 10px;
       }
+      .overlay {
+        width: 100vw;
+        height: 100vh;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: rgba(231, 219, 50, 0.8);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /*display: none;*/
+      }
+      .message {
+        background-color: white;
+      }
     </style>
   </head>
   <body>
@@ -94,6 +109,10 @@
           <img src="scissors.png" alt="scissors" />
         </div>
       </div>
+    </div>
+
+    <div class="overlay">
+      <div class="message">Game over</div>
     </div>
   </body>
 </html>
