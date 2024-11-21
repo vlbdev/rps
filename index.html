@@ -7,16 +7,18 @@
     <script src="rps-ui.js"></script>
     <style>
       h1,
-      h2 {
+      h2,
+      h3 {
         text-align: center;
       }
-      .yourChoice {
+      .yourChoice,
+      .choices {
         display: flex;
         justify-content: center;
         align-items: center;
       }
       .yourChoice img {
-        width: 150px;
+        width: 100px;
       }
     </style>
   </head>
@@ -28,6 +30,15 @@
       <img src="paper.png" alt="paper" />
       <img src="scissors.png" alt="scissors" />
     </div>
-    <div></div>
+    <div class="choices">
+      <div>
+        <h3>Computer choice</h3>
+        <img src="rock.png" alt="computer's choice is rock" />
+      </div>
+      <div>
+        <h3>Your choice</h3>
+        <img src="paper.png" alt="your choice is paper" />
+      </div>
+    </div>
   </body>
 </html>
