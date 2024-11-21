@@ -11,7 +11,8 @@
       h3 {
         text-align: center;
       }
-      .choices {
+      .choices,
+      .results {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -22,12 +23,44 @@
         display: block;
         margin: auto;
       }
+      .grid {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 10px;
+      }
+      .grid > div {
+        width: 30px;
+        height: 30px;
+        border: 1px solid black;
+        border-radius: 50%;
+      }
     </style>
   </head>
   <body>
     <h1>Rock Paper Scissors game</h1>
 
-    <div class="results"></div>
+    <div class="results">
+      <h2>Results:</h2>
+      <div>
+        <div class="computerResult grid">
+          <p>Computer</p>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+        <div class="yourResult grid">
+          <p>You</p>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
 
     <div class="choices">
       <div>
