@@ -11,7 +11,6 @@
       h3 {
         text-align: center;
       }
-      .yourChoice,
       .choices {
         display: flex;
         justify-content: center;
@@ -19,25 +18,32 @@
       }
       .yourChoice img {
         width: 100px;
+        display: block;
+        margin: auto;
       }
     </style>
   </head>
   <body>
     <h1>Rock Paper Scissors game</h1>
-    <h2>Make your choice:</h2>
-    <div class="yourChoice">
-      <img src="rock.png" alt="rock" />
-      <img src="paper.png" alt="paper" />
-      <img src="scissors.png" alt="scissors" />
-    </div>
+
     <div class="choices">
       <div>
-        <h3>Computer choice</h3>
+        <h2>Computer choice</h2>
         <img src="rock.png" alt="computer's choice is rock" />
       </div>
+
       <div>
-        <h3>Your choice</h3>
+        <h2>Your choice</h2>
         <img src="paper.png" alt="your choice is paper" />
+      </div>
+
+      <div>
+        <h3>Make your choice:</h3>
+        <div class="yourChoice">
+          <img src="rock.png" alt="rock" />
+          <img src="paper.png" alt="paper" />
+          <img src="scissors.png" alt="scissors" />
+        </div>
       </div>
     </div>
   </body>
