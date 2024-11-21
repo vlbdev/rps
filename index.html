@@ -62,6 +62,18 @@
       }
       .message {
         background-color: white;
+        position: relative;
+      }
+      .message::after {
+        content: "x";
+        position: absolute;
+        top: 0;
+        right: -25px;
+        background-color: white;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        text-align: center;
       }
     </style>
   </head>
