@@ -39,16 +39,27 @@ divHumanChoice.addEventListener("click", (e) => {
   displayHumanChoice.style.display = "block";
   displayHumanChoice.src = e.target.src;
   humanChoice = e.target.alt;
-  console.log(humanChoice);
   setComputerChoice();
-  console.log(computerChoice);
+  compareChoices(computerChoice, humanChoice);
 });
 
-/*
-Computer choice will assign
+function compareChoices(comp, human) {
+  if (human === comp) {
+    console.log("Draw");
+  } else if (human === "rock" && comp === "scissors") {
+    console.log("You win");
+  } else if (human === "paper" && comp === "rock") {
+    console.log("You win");
+  } else if (human === "scissors" && comp === "paper") {
+    console.log("You win");
+  } else {
+    console.log("Computer win");
+  }
+}
 
-Both of this choices will appear on the screen
-The values are comparing
+/*
+==>>The values are comparing
+
 If the values are equal nothing happen except the draw message appears somewhere above the choices
 If the winner is then it’s total score is incrementing
 The fields of the round in the results table is paint in appropriate colors
