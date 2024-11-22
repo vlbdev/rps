@@ -1,6 +1,8 @@
 const closeBtn = document.querySelector(".closeMessage");
 const overlay = document.querySelector(".overlay");
 
+overlay.style.display = "none";
+
 closeBtn.addEventListener("click", () => {
   overlay.style.display = "none";
 });
@@ -20,6 +22,9 @@ const unknownComputerChoice = document.querySelector(
 let humanChoice = null;
 let computerChoice = null;
 
+let totalHumanScore = 0;
+let totalComputerScore = 0;
+
 function setComputerChoice() {
   let randomNumber = Math.random();
   if (randomNumber <= 0.33) {
@@ -33,7 +38,7 @@ function setComputerChoice() {
   displayComputerChoice.style.display = "block";
   displayComputerChoice.src = computerChoice + ".png";
 }
-
+const overlayMessage = document.querySelector(".message h2");
 divHumanChoice.addEventListener("click", (e) => {
   unknownHumanChoice.remove();
   displayHumanChoice.style.display = "block";
@@ -41,6 +46,12 @@ divHumanChoice.addEventListener("click", (e) => {
   humanChoice = e.target.alt;
   setComputerChoice();
   compareChoices(computerChoice, humanChoice);
+  if (totalHumanScore >= 5) {
+    overlay.style.display = "flex";
+    overlayMessage.textContent = "You won the game";
+  } else if (totalComputerScore >= 5) {
+    overlay.style.display = "flex";
+  }
 });
 
 const roundWinner = document.querySelector(".roundWinner");
@@ -49,23 +60,41 @@ function compareChoices(comp, human) {
   if (human === comp) {
     roundWinner.textContent = "Draw";
   } else if (human === "rock" && comp === "scissors") {
-    roundWinner.textContent = "You win";
+    painHumanResult(totalHumanScore + 2);
+    totalHumanScore++;
+    roundWinner.textContent =
+      "You win the round #" + (totalHumanScore + totalComputerScore);
   } else if (human === "paper" && comp === "rock") {
-    roundWinner.textContent = "You win";
+    painHumanResult(totalHumanScore + 2);
+    totalHumanScore++;
+    roundWinner.textContent =
+      "You win the round #" + (totalHumanScore + totalComputerScore);
   } else if (human === "scissors" && comp === "paper") {
-    roundWinner.textContent = "You win";
+    painHumanResult(totalHumanScore + 2);
+    totalHumanScore++;
+    roundWinner.textContent =
+      "You win the round #" + (totalHumanScore + totalComputerScore);
   } else {
-    roundWinner.textContent = "Computer win";
+    painCompResult(totalComputerScore + 2);
+    totalComputerScore++;
+    roundWinner.textContent =
+      "Computer win the round #" + (totalHumanScore + totalComputerScore);
   }
 }
 
-/*
-==>>The values are comparing
+function painHumanResult(resultNum) {
+  const humanCell = document.querySelector(
+    `.yourResult > div:nth-child(${resultNum})`
+  );
+  humanCell.style.backgroundColor = "green";
+}
 
-If the values are equal nothing happen except the draw message appears somewhere above the choices
-If the winner is then it’s total score is incrementing
-The fields of the round in the results table is paint in appropriate colors
-Well it’s good to show the result of each round just like for draw case
-Then it’s time to compare each total score with the number five
-If someone gets five victories the overlay is open to show the message game over or with the congratulations
+function painCompResult(resultNum) {
+  const compCell = document.querySelector(
+    `.computerResult > div:nth-child(${resultNum})`
+  );
+  compCell.style.backgroundColor = "red";
+}
+
+/*
 The player then can choose the option play again and in this case all the data is resets and result table becomes an empty.*/
