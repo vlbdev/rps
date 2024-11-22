@@ -43,17 +43,19 @@ divHumanChoice.addEventListener("click", (e) => {
   compareChoices(computerChoice, humanChoice);
 });
 
+const roundWinner = document.querySelector(".roundWinner");
+
 function compareChoices(comp, human) {
   if (human === comp) {
-    console.log("Draw");
+    roundWinner.textContent = "Draw";
   } else if (human === "rock" && comp === "scissors") {
-    console.log("You win");
+    roundWinner.textContent = "You win";
   } else if (human === "paper" && comp === "rock") {
-    console.log("You win");
+    roundWinner.textContent = "You win";
   } else if (human === "scissors" && comp === "paper") {
-    console.log("You win");
+    roundWinner.textContent = "You win";
   } else {
-    console.log("Computer win");
+    roundWinner.textContent = "Computer win";
   }
 }
 
