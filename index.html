@@ -4,9 +4,145 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <script src="scripts.js"></script>
+    <script src="rps-ui.js" defer></script>
+    <style>
+      h1,
+      h2,
+      h3 {
+        text-align: center;
+      }
+      .choices,
+      .results {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 100px;
+      }
+      .results {
+        margin-bottom: 30px;
+      }
+      .choices div {
+        min-width: 350px;
+      }
+      .choices p {
+        font-size: 15.5em;
+        margin: 0;
+        text-align: center;
+      }
+      .yourChoice img {
+        width: 100px;
+        display: block;
+        margin: auto;
+      }
+      .grid {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 10px;
+      }
+      .grid > div {
+        width: 30px;
+        height: 30px;
+        border: 1px solid black;
+        border-radius: 50%;
+      }
+      .yourChoice img {
+        border: 1px solid black;
+        border-radius: 50%;
+        margin-bottom: 10px;
+      }
+      .overlay {
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background: rgba(231, 219, 50, 0.8);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /*display: none;*/
+      }
+      .message {
+        background-color: white;
+        position: relative;
+      }
+      .closeMessage {
+        position: absolute;
+        top: -23px;
+        right: -45px;
+        background-color: white;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        text-align: center;
+        font-size: 30px;
+        line-height: 40px;
+        cursor: pointer;
+      }
+      .roundWinner {
+        text-align: center;
+      }
+      .message {
+        padding: 30px;
+      }
+    </style>
   </head>
   <body>
     <h1>Rock Paper Scissors game</h1>
+
+    <div class="results">
+      <h2>Results:</h2>
+      <div>
+        <div class="computerResult grid">
+          <p>Computer</p>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+        <div class="yourResult grid">
+          <p>You</p>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+
+    <p class="roundWinner">Who will win the round?</p>
+
+    <div class="choices">
+      <div class="displayComputerChoice">
+        <h2>Computer choice</h2>
+        <p>?</p>
+        <img src="paper.png" alt="your choice is paper" />
+      </div>
+
+      <div class="displayHumanChoice">
+        <h2>Your choice</h2>
+        <p>?</p>
+        <img src="paper.png" alt="your choice is paper" />
+      </div>
+
+      <div>
+        <h3>Make your choice:</h3>
+        <div class="yourChoice">
+          <img src="rock.png" alt="rock" />
+          <img src="paper.png" alt="paper" />
+          <img src="scissors.png" alt="scissors" />
+        </div>
+      </div>
+    </div>
+
+    <div class="overlay">
+      <div class="message">
+        <h2>Game over</h2>
+        <span class="closeMessage">✕</span>
+      </div>
+    </div>
   </body>
 </html>
