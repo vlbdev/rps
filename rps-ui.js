@@ -7,10 +7,32 @@ closeBtn.addEventListener("click", () => {
 
 const divHumanChoice = document.querySelector(".yourChoice");
 const displayHumanChoice = document.querySelector(".displayHumanChoice img");
+const displayComputerChoice = document.querySelector(
+  ".displayComputerChoice img"
+);
 displayHumanChoice.style.display = "none";
+displayComputerChoice.style.display = "none";
 const unknownHumanChoice = document.querySelector(".displayHumanChoice p");
+const unknownComputerChoice = document.querySelector(
+  ".displayComputerChoice p"
+);
 
 let humanChoice = null;
+let computerChoice = null;
+
+function setComputerChoice() {
+  let randomNumber = Math.random();
+  if (randomNumber <= 0.33) {
+    computerChoice = "rock";
+  } else if (randomNumber <= 0.66) {
+    computerChoice = "paper";
+  } else {
+    computerChoice = "scissors";
+  }
+  unknownComputerChoice.remove();
+  displayComputerChoice.style.display = "block";
+  displayComputerChoice.src = computerChoice + ".png";
+}
 
 divHumanChoice.addEventListener("click", (e) => {
   unknownHumanChoice.remove();
@@ -18,6 +40,8 @@ divHumanChoice.addEventListener("click", (e) => {
   displayHumanChoice.src = e.target.src;
   humanChoice = e.target.alt;
   console.log(humanChoice);
+  setComputerChoice();
+  console.log(computerChoice);
 });
 
 /*
