@@ -5,9 +5,24 @@ closeBtn.addEventListener("click", () => {
   overlay.style.display = "none";
 });
 
+const divHumanChoice = document.querySelector(".yourChoice");
+const displayHumanChoice = document.querySelector(".displayHumanChoice img");
+displayHumanChoice.style.display = "none";
+const unknownHumanChoice = document.querySelector(".displayHumanChoice p");
+
+let humanChoice = null;
+
+divHumanChoice.addEventListener("click", (e) => {
+  unknownHumanChoice.remove();
+  displayHumanChoice.style.display = "block";
+  displayHumanChoice.src = e.target.src;
+  humanChoice = e.target.alt;
+  console.log(humanChoice);
+});
+
 /*
 Computer choice will assign
-Human choice will assign
+
 Both of this choices will appear on the screen
 The values are comparing
 If the values are equal nothing happen except the draw message appears somewhere above the choices
