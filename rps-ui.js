@@ -3,10 +3,6 @@ const overlay = document.querySelector(".overlay");
 
 overlay.style.display = "none";
 
-closeBtn.addEventListener("click", () => {
-  overlay.style.display = "none";
-});
-
 const divHumanChoice = document.querySelector(".yourChoice");
 const displayHumanChoice = document.querySelector(".displayHumanChoice img");
 const displayComputerChoice = document.querySelector(
@@ -95,6 +91,16 @@ function painCompResult(resultNum) {
   );
   compCell.style.backgroundColor = "red";
 }
+
+closeBtn.addEventListener("click", () => {
+  overlay.style.display = "none";
+  totalHumanScore = 0;
+  totalComputerScore = 0;
+  document.querySelectorAll(".grid div").forEach((item) => {
+    item.style.backgroundColor = "white";
+  });
+  roundWinner.textContent = "Who will win the round?";
+});
 
 /*
 The player then can choose the option play again and in this case all the data is resets and result table becomes an empty.*/
